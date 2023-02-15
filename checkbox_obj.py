@@ -10,6 +10,6 @@ class Checkbox :
 
     def check_checkbox(self):
         if self.checkbox_value.get() == 1:
-            print("La case est cochée !")
+            return True
         else:
-            print("La case n'est pas cochée.")
+            return False
