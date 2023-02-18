@@ -3,6 +3,16 @@ from tkinter import ttk
 from tkinter import messagebox
 from dir_object import directory
 from checkbox_obj import Checkbox
+import os
+import sys
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 # Generate Desktop directory :
 Desktop_dir = directory('Desktop')
@@ -28,10 +38,10 @@ root = tk.Tk()
 root.title("PIX Files Cleaner")
 root.geometry("1920x1080")
 root.resizable(False, False)  # Bloquer le ratio de la fenêtre
-root.iconbitmap('icon\icon_window.ico')
+root.iconbitmap(resource_path('icon_window.ico'))
 
 # Ajout d'une image de fond
-bg_image = tk.PhotoImage(file='img/Background.png')
+bg_image = tk.PhotoImage(file=resource_path('Background.png'))
 bg_label = tk.Label(root, image=bg_image)
 bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
